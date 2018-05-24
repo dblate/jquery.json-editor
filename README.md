@@ -9,4 +9,4 @@ Features:
 * Easily readable and minimal DOM structure
 * Editable JSON
 
-Check out the [example](./example.html)
+Check out the [example](https://dblate.github.io/jquery.json-editor/)
