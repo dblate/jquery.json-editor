@@ -1,4 +1,25 @@
-require('/jquery.json-viewer.css')
+(function() {
+    var cssContent = '/* Syntax highlighting for JSON objects */ ul.json-dict, ol.json-array {   list-style-type: none;   margin: 0 0 0 1px;   border-left: 1px dotted #ccc;   padding-left: 2em; } .json-string {   color: #0B7500; } .json-literal {   color: #1A01CC;   font-weight: bold; }  /* Toggle button */ a.json-toggle {   position: relative;   color: inherit;   text-decoration: none;   cursor: n-resize; } a.json-toggle:focus {   outline: none; } a.json-toggle:before {   color: #aaa;   content: "\\25BC"; /* down arrow */   position: absolute;   display: inline-block;   width: 1em;   left: -1em; } a.json-toggle.collapsed {   cursor: ns-resize; } a.json-toggle.collapsed:before {   transform: rotate(-90deg); /* Use rotated down arrow, prevents right arrow appearing smaller than down arrow in some browsers */   -ms-transform: rotate(-90deg);   -webkit-transform: rotate(-90deg); }   /* Collapsable placeholder links */ a.json-placeholder {   color: #aaa;   padding: 0 1em;   text-decoration: none; } a.json-placeholder:hover {   text-decoration: underline; }';
+    var injectCssFn = (function (css) {
+    var headEl = document.getElementsByTagName('head')[0];
+    var styleEl = document.createElement('style');
+    headEl.appendChild(styleEl);
+    
+    if (styleEl.styleSheet) {
+        if (!styleEl.styleSheet.disabled) {
+            styleEl.styleSheet.cssText = css;
+        }
+    } else {
+        try {
+            styleEl.innerHTML = css
+        } catch(e) {
+            styleEl.innerText = css;
+        }
+    }
+});
+
+    injectCssFn(cssContent);
+})();
 /**
  * jQuery json-viewer
  * @author: Alexandre Bodelot <alexandre.bodelot@gmail.com>
