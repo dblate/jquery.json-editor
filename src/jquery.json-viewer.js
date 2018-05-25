@@ -1,25 +1,3 @@
-(function() {
-    var cssContent = '/* Syntax highlighting for JSON objects */ ul.json-dict, ol.json-array {   list-style-type: none;   margin: 0 0 0 1px;   border-left: 1px dotted #ccc;   padding-left: 2em; } .json-string {   color: #0B7500; } .json-literal {   color: #1A01CC;   font-weight: bold; }  /* Toggle button */ a.json-toggle {   position: relative;   color: inherit;   text-decoration: none;   cursor: n-resize; } a.json-toggle:focus {   outline: none; } a.json-toggle:before {   color: #aaa;   content: "\\25BC"; /* down arrow */   position: absolute;   display: inline-block;   width: 1em;   left: -1em; } a.json-toggle.collapsed {   cursor: ns-resize; } a.json-toggle.collapsed:before {   transform: rotate(-90deg); /* Use rotated down arrow, prevents right arrow appearing smaller than down arrow in some browsers */   -ms-transform: rotate(-90deg);   -webkit-transform: rotate(-90deg); }   /* Collapsable placeholder links */ a.json-placeholder {   color: #aaa;   padding: 0 1em;   text-decoration: none; } a.json-placeholder:hover {   text-decoration: underline; }';
-    var injectCssFn = (function (css) {
-    var headEl = document.getElementsByTagName('head')[0];
-    var styleEl = document.createElement('style');
-    headEl.appendChild(styleEl);
-    
-    if (styleEl.styleSheet) {
-        if (!styleEl.styleSheet.disabled) {
-            styleEl.styleSheet.cssText = css;
-        }
-    } else {
-        try {
-            styleEl.innerHTML = css
-        } catch(e) {
-            styleEl.innerText = css;
-        }
-    }
-});
-
-    injectCssFn(cssContent);
-})();
 /**
  * jQuery json-viewer
  * @author: Alexandre Bodelot <alexandre.bodelot@gmail.com>
@@ -53,18 +31,18 @@
       /* Escape tags */
       json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
       if (isUrl(json))
-        html += '<a href="' + json + '" class="json-string">"' + json + '"</a>';
+        html += '<a href="' + json + '" class="json-string json-url">"' + json + '"</a>';
       else
         html += '<span class="json-string">"' + json + '"</span>';
     }
     else if (typeof json === 'number') {
-      html += '<span class="json-literal">' + json + '</span>';
+      html += '<span class="json-literal json-literal-number">' + json + '</span>';
     }
     else if (typeof json === 'boolean') {
-      html += '<span class="json-literal">' + json + '</span>';
+      html += '<span class="json-literal json-literal-boolean">' + json + '</span>';
     }
     else if (json === null) {
-      html += '<span class="json-literal">null</span>';
+      html += '<span class="json-literal json-literal-null">null</span>';
     }
     else if (json instanceof Array) {
       if (json.length > 0) {
@@ -95,8 +73,9 @@
         for (var key in json) {
           if (json.hasOwnProperty(key)) {
             html += '<li>';
-            var keyRepr = options.withQuotes ?
-              '<span class="json-string">"' + key + '"</span>' : key;
+            var keyRepr = options.withQuotes
+              ? '<span class="json-string json-property">"' + key + '"</span>'
+              : '<span class="json-property">' + key + '</span>';
             /* Add toggle button if item is collapsable */
             if (isCollapsable(json[key])) {
               html += '<a href class="json-toggle">' + keyRepr + '</a>';
@@ -167,31 +146,4 @@
       }
     });
   };
-})(jQuery);
-
-(function ($) {
-    $.fn.jsonEditor = function (json, options) {
-        options = options || {};
-
-        if (options.editable !== false) {
-            options.editable = true;
-        }
-
-        var $this = $(this);
-        $this.jsonViewer(json, {
-          collapsed: !!options.defaultCollapsed,
-          withQuotes: true
-        });
-
-        $this.attr('contenteditable', !!options.editable);
-
-        return {
-            getJson: function () {
-                return JSON.parse($this.text());
-            },
-            editable: function (editable) {
-                $this.attr('contenteditable', !!editable);
-            }
-        }
-    };
 })(jQuery);

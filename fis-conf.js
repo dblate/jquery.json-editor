@@ -1,28 +1,19 @@
-fis.match('*.js', {
-    // optimizer: fis.plugin('uglify-js'),
+/**
+ * @file fis config
+ * @description bundle css & js
+ * @author yuhui06
+ * @date 2018/5/25
+ */
+
+fis.set('file-name', 'jquery.json-editor');
+
+fis.match('**', {release: false});
+
+fis.match('src/index.js', {
+    optimizer: fis.plugin('uglify-js'),
     preprocessor: fis.plugin('js-require-css', {
         mode: 'inline'
-    })
+    }),
+    release: fis.get('file-name') + '.min.js'
 });
-
-fis.match('index.html', {
-    release: false
-});
-
-fis.match('README.md', {
-    release: false
-});
-
-fis.media('dist')
-    .match('(*).js', {
-        optimizer: fis.plugin('uglify-js'),
-        preprocessor: fis.plugin('js-require-css', {
-            mode: 'inline'
-        }),
-        release: '$1.min.js'
-    })
-    .match('(*).css', {
-        optimizer: fis.plugin('clean-css'),
-        release: '$1.min.css'
-    });
 

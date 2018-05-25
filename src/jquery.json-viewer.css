@@ -1,16 +1,39 @@
 /* Syntax highlighting for JSON objects */
+.json-editor-blackbord {
+  background: #1c2833;
+  color: #fff;
+  font-size: 13px;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+@media screen and (min-width: 1600px) {
+  .json-editor-blackbord {
+    font-size: 14px;
+  }
+}
+
 ul.json-dict, ol.json-array {
   list-style-type: none;
   margin: 0 0 0 1px;
-  border-left: 1px dotted #ccc;
+  border-left: 1px dotted #525252;
   padding-left: 2em;
 }
 .json-string {
-  color: #0B7500;
+  /*color: #0B7500;*/
+  /*color: #BCCB86;*/
+  color: #0ad161;
 }
 .json-literal {
-  color: #1A01CC;
-  font-weight: bold;
+  /*color: #1A01CC;*/
+  /*font-weight: bold;*/
+  color: #ff8c00;
+}
+.json-url {
+  color: #1e90ff;
+}
+.json-property {
+  color: #4fdee5;
+  line-height: 160%;
+  font-weight: 500;
 }
 
 /* Toggle button */
@@ -18,7 +41,7 @@ a.json-toggle {
   position: relative;
   color: inherit;
   text-decoration: none;
-  cursor: n-resize;
+  cursor: pointer;
 }
 a.json-toggle:focus {
   outline: none;
@@ -30,9 +53,6 @@ a.json-toggle:before {
   display: inline-block;
   width: 1em;
   left: -1em;
-}
-a.json-toggle.collapsed {
-  cursor: ns-resize;
 }
 a.json-toggle.collapsed:before {
   transform: rotate(-90deg); /* Use rotated down arrow, prevents right arrow appearing smaller than down arrow in some browsers */

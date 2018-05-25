@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>JQuery JSON Editor Example</title>
-    <link rel="stylesheet" type="text/css" href="./jquery.json-viewer.css" />
     <style type="text/css">
         body {
             margin: 0;
@@ -10,7 +9,6 @@
             width: 80%;
             margin: 50px auto 100px;
         }
-
         #json-input {
             display: block;
             width: 100%;
@@ -33,7 +31,7 @@
 </head>
 <body>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script type="text/javascript" src="./jquery.json-editor.js"></script>
+    <script type="text/javascript" src="./dist/jquery.json-editor.min.js"></script>
 
     <h1><a href="https://github.com/dblate/jquery.json-editor">JSON EDITOR</a></h1>
 
@@ -45,8 +43,8 @@
           "description": "http://en.wikipedia.org/wiki/Doughnut",
           "price": 2.55,
           "available": {
-            store: 42,
-            warehouse: 600
+            "store": 42,
+            "warehouse": 600
           },
           "topping": [
             { "id": 5001, "type": "None" },
@@ -56,20 +54,23 @@
             { "id": 5004, "type": "Maple" }
           ]
         }
+        
     </textarea>
     <button id="translate">Translate To HTML</button>
     <pre id="json-display"></pre>
 
     <script type="text/javascript">
-        var $jsonDisplay = $('#json-display');
-        var editor = $jsonDisplay.jsonEditor(getJson());
-
         function getJson() {
-            return eval('(' + $('#json-input').val() + ')');
+            try {
+                return JSON.parse($('#json-input').val());
+            } catch (ex) {
+                alert('Wrong JSON Format: ' + ex);
+            }
         }
 
+        var editor = new JsonEditor('#json-display', getJson());
         $('#translate').on('click', function () {
-            editor = $jsonDisplay.jsonEditor(getJson());
+            editor.load(getJson());
         });
     </script>
 </body>
