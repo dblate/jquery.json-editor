@@ -5,13 +5,17 @@ A json viewer and editor based on [jquery.jquery-viewer](https://github.com/abod
 
 * Syntax highlighting
 * Collapse and expand child nodes on click
-* Clickable links
 * Easily readable and minimal DOM structure
 * Editable
 
 Check out the [example](https://dblate.github.io/jquery.json-editor/)
 
 ## 使用
+
+```html
+<script src="path/to/jquery" type="text/javascript"></script>
+<script src="path/to/jquery.json-editor" type="text/javascript"></script>
+```
 
 ```javascript
 /**
