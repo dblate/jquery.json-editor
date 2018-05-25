@@ -1,5 +1,5 @@
 # jquery.json-editor
-A json viewer and editor based on [jquery](https://github.com/jquery/jquery) and [jquery.jquery-viewer](https://github.com/abodelot/jquery.json-viewer).
+A json viewer and editor based on [jquery.jquery-viewer](https://github.com/abodelot/jquery.json-viewer).
 
 Features:
 
