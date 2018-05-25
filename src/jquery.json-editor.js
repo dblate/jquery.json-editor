@@ -37,12 +37,7 @@
             options.editable = true;
         }
 
-        json = encodeJSON(json);
-
-        var $container = $container;
-
         this.$container = $(container);
-        this.json = json;
         this.options = options;
 
         this.load(json);
@@ -51,6 +46,9 @@
     JsonEditor.prototype = {
         constructor: JsonEditor,
         load: function (json) {
+            // 为了更容易转换回去，牺牲了一点展示效果
+            json = encodeJSON(json);
+
             this.$container.jsonViewer(encodeJSON(json), {
                 collapsed: this.options.defaultCollapsed,
                 withQuotes: true
