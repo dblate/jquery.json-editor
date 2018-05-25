@@ -13,8 +13,8 @@ Check out the [example](https://dblate.github.io/jquery.json-editor/)
 ## 使用
 
 ```html
-<script src="path/to/jquery" type="text/javascript"></script>
-<script src="path/to/jquery.json-editor" type="text/javascript"></script>
+<script src="path/to/jquery.js" type="text/javascript"></script>
+<script src="path/to/jquery.json-editor.js" type="text/javascript"></script>
 ```
 
 ```javascript
