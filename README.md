@@ -3,12 +3,12 @@ A json viewer and editor based on [jquery.jquery-viewer](https://github.com/abod
 
 ## 特性:
 
-* Syntax highlighting
-* Collapse and expand child nodes on click
-* Easily readable and minimal DOM structure
-* Editable
+* 语法高亮
+* 支持数据块展开与收起
+* 简单
+* 可编辑
 
-Check out the [example](https://dblate.github.io/jquery.json-editor/)
+查看[在线示例](https://dblate.github.io/jquery.json-editor/)
 
 ## 使用
 
