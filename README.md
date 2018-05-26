@@ -37,6 +37,6 @@ try {
     editor.get();
 } catch (ex) {
     // Trigger a Error when invalid JSON
-    alery(ex);
+    alert(ex);
 }
 ```
