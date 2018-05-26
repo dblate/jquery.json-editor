@@ -33,5 +33,10 @@ var editor = new JsonEditor(container, json, options);
 editor.load(json);
 
 // 获取 json
-editor.get();
+try {
+    editor.get();
+} catch (ex) {
+    // Trigger a Error when invalid JSON
+    alery(ex);
+}
 ```
