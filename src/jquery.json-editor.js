@@ -17,7 +17,7 @@
 
     function encodeJSON(json) {
         if (typeof json === 'string') {
-            encodeJSONStr(json);
+            return encodeJSONStr(json);
         } else if (typeof json === 'object') {
             for (var attr in json) {
                 json[attr] = encodeJSON(json[attr]);
@@ -46,9 +46,6 @@
     JsonEditor.prototype = {
         constructor: JsonEditor,
         load: function (json) {
-            // 为了更容易转换回去，牺牲了一点展示效果
-            json = encodeJSON(json);
-
             this.$container.jsonViewer(encodeJSON(json), {
                 collapsed: this.options.defaultCollapsed,
                 withQuotes: true
@@ -58,11 +55,10 @@
         },
         get: function () {
             try{
-                // @todo 更好地解决 JSON 折叠时获取数据的问题
-                $('.collapsed').click();
+                this.$container.find('.collapsed').click();
                 return JSON.parse(this.$container.text());
             } catch (ex) {
-                alert('Wrong JSON Format: ' + ex);
+                throw new Error(ex);
             }
         }
     }

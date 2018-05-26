@@ -66,6 +66,7 @@ a.json-placeholder {
   color: #aaa;
   padding: 0 1em;
   text-decoration: none;
+  cursor: pointer;
 }
 a.json-placeholder:hover {
   text-decoration: underline;

@@ -78,7 +78,7 @@
               : '<span class="json-property">' + key + '</span>';
             /* Add toggle button if item is collapsable */
             if (isCollapsable(json[key])) {
-              html += '<a href class="json-toggle">' + keyRepr + '</a>';
+              html += '<a href class="json-toggle"></a>' + keyRepr;
             }
             else {
               html += keyRepr;
