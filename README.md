@@ -8,7 +8,7 @@ A json viewer and editor based on [jquery.json-viewer](https://github.com/abodel
 * 简单
 * 可编辑
 
-查看[在线示例](https://dblate.github.io/jquery.json-editor/)
+[在线示例](https://dblate.github.io/jquery.json-editor/)
 
 ## 使用
 
