@@ -1,14 +1,14 @@
 # jquery.json-editor
 A json viewer and editor based on [jquery.json-viewer](https://github.com/abodelot/jquery.json-viewer).
 
+Check out the [demo page](https://dblate.github.io/jquery.json-editor/)!
+
 ## 特性:
 
 * 语法高亮
 * 支持数据块展开与收起
 * 简单
 * 可编辑
-
-[在线示例](https://dblate.github.io/jquery.json-editor/)
 
 ## 使用
 
