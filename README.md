@@ -1,5 +1,5 @@
 # jquery.json-editor
-A json viewer and editor based on [jquery.json-viewer](https://github.com/abodelot/jquery.json-viewer).
+A json editor based on [jquery.json-viewer](https://github.com/abodelot/jquery.json-viewer).
 
 Check out the [demo page](https://dblate.github.io/jquery.json-editor/)!
 
