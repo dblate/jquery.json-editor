@@ -42,23 +42,28 @@
     </ul>
 
     <textarea id="json-input" autocomplete="off">
-        {
-          "id": 1001,
-          "type": "donut",
-          "name": "Cake",
-          "description": "http://en.wikipedia.org/wiki/Doughnut",
-          "price": 2.55,
-          "available": {
-            "store": 42,
-            "warehouse": 600
+         {
+          "name": "jquery.json-editor",
+          "description": "A json editor based on jquery.json-viewer.",
+          "author": "yuhui06",
+          "version": "1.0.0",
+          "homepage": "https://github.com/dblate/jquery.json-editor",
+          "demo": "https://dblate.github.io/jquery.json-editor/",
+          "release-date": {
+             "year": 2018,
+             "month": 5,
+             "day": 25
           },
-          "topping": [
-            { "id": 5001, "type": "None" },
-            { "id": 5002, "type": "Glazed" },
-            { "id": 5005, "type": "Sugar" },
-            { "id": 5003, "type": "Chocolate" },
-            { "id": 5004, "type": "Maple" }
-          ]
+          "dependencies": "jquery",
+          "devDependencies": "fis3",
+          "fis3-plugins": [{
+            "name": "uglify-js",
+            "usage": "optimizer"
+          }, {
+            "name": "js-require-css",
+            "usage": "css inline"
+          }],
+          "UMD": false
         }
         
     </textarea>
