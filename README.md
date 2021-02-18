@@ -40,3 +40,7 @@ try {
     alert(ex);
 }
 ```
+
+## License
+
+MIT License
